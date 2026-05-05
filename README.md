@@ -24,11 +24,11 @@ During development and testing, simulated scan outputs are used. Live execution 
 ```text
 vibesec/
 ├── docs/
-│   └── .gitkeep
+│   └── README.md
 ├── reports/
-│   └── .gitkeep
+│   └── README.md
 ├── src/
-│   └── .gitkeep
+│   └── README.md
 └── README.md
 ```
 
