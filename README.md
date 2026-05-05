@@ -1,13 +1,15 @@
-VibeSec is an academic cybersecurity prototype exploring AI-assisted security assessment workflows.
+# VibeSec
+
+VibeSec is an academic cybersecurity prototype exploring AI-assisted security assessment workflows for Security Operations Center (SOC) contexts.
 
 ## Project Scope
 
-The project investigates how AI can support Security Operations Center (SOC) activities by:
+The project investigates how AI can support vulnerability assessment and threat modelling by:
 
 - automating vulnerability scanning through established tools,
 - parsing and interpreting scan results,
 - applying AI-assisted threat modelling, and
-- producing a structured security assessment report.
+- producing structured security assessment reports.
 
 ## Research Context
 
@@ -15,4 +17,21 @@ This project is developed as a postgraduate-level proof of concept under the the
 
 **When AI Meets the SOC: Automating Vulnerability Assessment and Threat Modelling**
 
-During development and testing, simulated scan outputs are used. Live execution is intended for a later phase within a controlled cyber lab environment.
+During development and testing, simulated scan outputs are used. Live execution is planned for a later phase in a controlled cyber lab environment.
+
+## Repository Structure
+
+```text
+vibesec/
+├── docs/
+│   └── .gitkeep
+├── reports/
+│   └── .gitkeep
+├── src/
+│   └── .gitkeep
+└── README.md
+```
+
+- `src/`: Project source code (Python modules and workflows).
+- `docs/`: Project documentation and design notes.
+- `reports/`: Generated and curated assessment reports.
