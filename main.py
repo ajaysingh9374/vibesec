@@ -3,16 +3,23 @@
 This first version only proves the scanner workflow:
 - simulate by reusing an existing Nmap XML file from samples/
 - run a local Nmap scan against localhost and save XML output
+- parse open port details from the available Nmap XML file
 
-Parsing, analysis, AI logic, and report generation are planned later.
+Analysis, AI logic, and report generation are planned later.
 """
 
 from __future__ import annotations
 
 import argparse
 import sys
+from pathlib import Path
 
 from scanner.nmap_runner import NmapRunnerError, run_local_scan, use_sample_scan
+from scanner.xml_parser import (
+    NmapXmlParserError,
+    parse_nmap_xml,
+    print_open_ports_table,
+)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -43,10 +50,19 @@ def print_summary(mode: str, xml_file: str) -> None:
     print(f"Running Mode : {mode}")
     print(f"XML File     : {xml_file}")
     print()
+    print("Current workflow step:")
+    print("1. XML available")
+    print("2. parse open port details")
+    print()
     print("Next planned steps:")
-    print("1. parse")
-    print("2. analyse")
-    print("3. report")
+    print("1. analyse")
+    print("2. report")
+
+
+def parse_and_print_xml(xml_file: Path) -> None:
+    """Parse the available Nmap XML file and print extracted open ports."""
+    records = parse_nmap_xml(xml_file)
+    print_open_ports_table(records)
 
 
 def main() -> int:
@@ -58,14 +74,16 @@ def main() -> int:
         if args.simulate:
             xml_file = use_sample_scan()
             print_summary("simulate", str(xml_file))
+            parse_and_print_xml(xml_file)
             return 0
 
         if args.local:
             xml_file = run_local_scan()
             print_summary("local", str(xml_file))
+            parse_and_print_xml(xml_file)
             return 0
 
-    except NmapRunnerError as error:
+    except (NmapRunnerError, NmapXmlParserError) as error:
         print(f"Error: {error}", file=sys.stderr)
         return 1
 
