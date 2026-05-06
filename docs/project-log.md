@@ -15,3 +15,19 @@
 
 5. **Optionally validate the workflow through controlled live lab execution**  
    If time and lab conditions permit before submission, conduct at least **one controlled live execution** against an authorised lab target to compare live scan-derived outputs with simulated or sample-based outputs. The exercise must document the target scope, safety controls, observed differences, operational constraints, and any ethical or legal limitations, ensuring that live testing remains proportionate, authorised, and reproducible.
+
+## Prompt Design Parameters Used in VibeSec
+
+Good prompts were used to keep the AI support focused, practical, and safe for a cybersecurity coursework project. The table below records the main prompt parameters used when planning and building VibeSec.
+
+| Prompt parameter | Why it is important | Example from VibeSec |
+| --- | --- | --- |
+| Clear role | Tells the AI what type of expertise to apply and keeps the response relevant. | "Act as a cybersecurity student building a small AI-assisted vulnerability reporting tool." |
+| Specific task | Makes the expected work clear and reduces vague or unfocused output. | "Create SMART objectives for a project that parses Nmap XML and generates a security report." |
+| Project context | Helps the AI understand the purpose, audience, and coursework requirements. | "This is for CI7530 CyberSecurity and Artificial Intelligence coursework using VibeSec as the prototype." |
+| Input evidence | Grounds the AI output in real project material rather than guessing. | "Use Nmap XML fields such as hosts, ports, services, states, and script output as the source evidence." |
+| Output format | Makes the result easier to review, reuse, and include in documentation or reports. | "Return the answer as a Markdown table with finding, risk, evidence, and mitigation columns." |
+| Constraints | Prevents unwanted changes and keeps the response within the project scope. | "Do not change code or folder structure; only update docs/project-log.md." |
+| Safety and ethics | Important in cybersecurity work because prompts must avoid unauthorised or harmful activity. | "Only describe testing against authorised lab targets and include limitations and human validation." |
+| Validation request | Encourages the AI to include checks, assumptions, and areas needing human review. | "Mark AI-generated threat model entries as accepted, revised, or rejected after human review." |
+| Practical examples | Makes the prompt output easier to understand and apply in the project. | "Show an example mitigation for an open service discovered in an Nmap scan." |
