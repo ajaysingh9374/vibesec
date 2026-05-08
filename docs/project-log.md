@@ -106,7 +106,7 @@ Reporting is not part of Stage 2. Reporting belongs to Stage 3.
 
 ## Stage 2 Step 2.2: Mapping Parsed Findings to Threat Context
 
-This step maps parsed scan data to broad threat context in a human-readable way. It is not an automated threat model, not an AI-generated conclusion, and not a risk assessment.
+This step maps parsed scan data to broad threat context in a human-readable way. It is not an automated threat model, not an AI-generated conclusion, not a risk assessment, and not a report.
 
 The purpose is to explain what general kind of exposure a technical finding may relate to, so that a human reviewer has a clear starting point for later threat modelling.
 
@@ -121,12 +121,12 @@ The purpose is to explain what general kind of exposure a technical finding may 
 
 ### High-Level Mapping Table
 
-| Parsed technical finding | Possible threat context | Simple explanation |
+| Parsed technical finding | Possible threat category | Simple explanation |
 | --- | --- | --- |
 | Host with one or more open ports | Network exposure | A host with open ports has services reachable on the network. |
 | Open TCP service | Service exposure | An open TCP service may allow remote systems to connect to that service. |
 | Open UDP service | Datagram-based service exposure | An open UDP service may indicate a service that communicates without a persistent connection. |
-| Open SMB or file-sharing service | Network file-sharing surface | An open file-sharing service increases exposure to network-based access attempts. |
+| Open SMB or file-sharing service | Network file-sharing surface | An open SMB or file-sharing service increases exposure to network-based threats. |
 | Open remote administration service | Remote access surface | A remote administration service may provide an access path that requires careful human review. |
 | Open web service | Web surface | An exposed web service may present a web application or HTTP-based attack surface. |
 | Open database service | Data service surface | A database service exposed on the network may relate to data access or storage exposure. |
