@@ -148,3 +148,61 @@ The current parsed localhost scan contains open TCP services including `msrpc`, 
 ### Boundary Statement
 
 This mapping is descriptive only. It does not confirm that a threat exists, does not prove exploitability, and does not decide whether a service is safe or unsafe. Final interpretation must remain with a human reviewer in a later Stage 2 activity.
+
+## Stage 2 Step 2.3: AI-Assisted Threat Reasoning
+
+This step documents how AI assistance may be used to suggest possible threat interpretations from the Stage 2.2 threat context mapping. It remains advisory only. It does not create a report, does not declare vulnerabilities, and does not replace human judgement.
+
+### Purpose
+
+The purpose of Step 2.3 is to prepare high-level, human-reviewable threat interpretations from existing threat contexts such as network exposure, service exposure, web surface, and remote access surface.
+
+This step keeps factual parsed data separate from AI-assisted interpretation. Parsed data remains evidence from Stage 1. Threat context remains the generic mapping from Step 2.2. AI-assisted text is only a suggestion for human review.
+
+### Separation of Data, Context, and AI Reasoning
+
+| Layer | What it contains | How it is treated |
+| --- | --- | --- |
+| Parsed data | Host, port, protocol, service, and version extracted from Nmap XML. | Factual technical input from Stage 1. |
+| Threat context | High-level category from Step 2.2, such as network exposure or web surface. | Generic descriptive mapping. |
+| AI-assisted interpretation | Suggested possible scenario based on the threat context. | Advisory only and explicitly labelled as AI-generated. |
+| Human review | Human decision to accept, revise, or reject the suggestion. | Final authority before later use. |
+
+### Rules for AI-Assisted Interpretations
+
+- Every AI-generated statement must include an explicit warning.
+- Wording must stay cautious, using terms such as "may", "could", or "might".
+- The AI must not declare any host, service, or system vulnerable.
+- The AI must not assign severity, likelihood, impact, or risk levels.
+- The AI must not recommend mitigations or fixes.
+- The AI must not reference CVEs or vulnerability databases.
+- The AI must not replace human judgement.
+
+### Advisory Interpretation Examples
+
+| Threat context from Step 2.2 | AI-generated advisory interpretation | Human review status |
+| --- | --- | --- |
+| Network exposure | Warning: AI-generated. A host with reachable network services may provide a wider surface for later human review, depending on the intended role of the host and services. | Needs human review |
+| Service exposure | Warning: AI-generated. An open service could represent a point where another system or user may interact with the host. This does not mean the service is vulnerable. | Needs human review |
+| Network file-sharing surface | Warning: AI-generated. An SMB or file-sharing service may relate to shared resources or Windows networking functions that could be considered during later threat modelling. | Needs human review |
+| Remote access surface | Warning: AI-generated. A remote access service might indicate an administrative or management pathway that should be understood in its operational context. | Needs human review |
+| Web surface | Warning: AI-generated. An exposed web service may present a browser-accessible or HTTP-based interface that could be relevant to later threat modelling. | Needs human review |
+| Data service surface | Warning: AI-generated. A database or data-related service may be relevant to later questions about data access paths, but this step does not assess weakness or exposure level. | Needs human review |
+| Identity and authentication surface | Warning: AI-generated. A directory or identity-related service may be connected to authentication or user lookup functions and may need human context review. | Needs human review |
+| Unclear exposure | Warning: AI-generated. If the service name or version is unknown, the exposure may need manual clarification before any later interpretation is accepted. | Needs human review |
+
+### Example Based on Current Parsed Services
+
+| Parsed data | Existing threat context | AI-generated advisory interpretation | Boundary note |
+| --- | --- | --- | --- |
+| `127.0.0.1`, TCP port `135`, service `msrpc` | Remote service communication surface | Warning: AI-generated. This may represent a reachable RPC-related communication service that could be considered during later high-level threat modelling. | No vulnerability conclusion is made. |
+| `127.0.0.1`, TCP port `445`, service `microsoft-ds` | Network file-sharing or Windows networking surface | Warning: AI-generated. This may represent a reachable Windows networking or file-sharing service that could be relevant to later exposure review. | No severity, likelihood, or risk level is assigned. |
+| `127.0.0.1`, TCP port `5357`, service `wsdapi` | Service discovery or web-services device surface | Warning: AI-generated. This may represent a reachable service discovery-related endpoint that could be noted as part of the visible service surface. | No mitigation or fix is recommended. |
+
+### Human Review Requirement
+
+All AI-assisted interpretations in Step 2.3 must be reviewed by a human before they are used in any later stage. The reviewer should mark each suggestion as accepted, revised, or rejected. Until that review happens, the content remains advisory preparation only.
+
+### Boundary Statement
+
+Step 2.3 prepares advisory material for future reporting but does not generate a report. It does not perform exploitation, vulnerability scoring, CVE lookup, mitigation planning, or final threat modelling decisions.
