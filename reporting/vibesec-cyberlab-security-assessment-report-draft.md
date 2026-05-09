@@ -12,6 +12,8 @@ This draft report presents VibeSec assessment output based on the CyberLab XML s
 
 The assessment data includes three observed hosts and 48 parsed open TCP service records. The report remains cautious and evidence-based. It does not confirm vulnerabilities, assign severity, reference CVEs, provide recommendations, or describe exploitation.
 
+The report should be read as a structured assessment draft. The parsed scan results show what was observed, the threat context mapping explains how those observations can be described at a high level, and the AI-assisted interpretation provides advisory text for human review.
+
 ## Scope
 
 This draft is limited to the parsed scan evidence available from `samples/Vibe.xml`. The report uses only data already extracted through the Stage 1 parser and previously defined Stage 2 context.
@@ -34,6 +36,8 @@ Out of scope:
 - recommendations or mitigation steps
 - new scanning, parsing, analysis, or threat modelling
 
+The scope is intentionally narrow so that the report remains aligned with the staged VibeSec development process.
+
 ## Methodology
 
 The report follows the VibeSec staged workflow:
@@ -45,6 +49,8 @@ The report follows the VibeSec staged workflow:
 5. Stage 3.3 places the available material into a draft report structure for review.
 
 This methodology is assessment-focused. It does not include exploit attempts, scoring, CVE checks, recommendations, or final security conclusions.
+
+The order of the report follows the same logic: evidence first, context second, advisory interpretation third, and human review last.
 
 ## Parsed Scan Results
 
@@ -103,6 +109,8 @@ The following table contains factual parsed data from the CyberLab XML file. Ser
 
 These rows are factual parsed scan records only. They do not confirm vulnerabilities, exploitability, or impact.
 
+The next section summarises these records without changing their meaning.
+
 ## Baseline Summary
 
 | Summary item | Value |
@@ -149,26 +157,32 @@ Services discovered:
 
 This summary is descriptive only. It does not assign risk, severity, likelihood, or impact.
 
+The summary is used only to make the parsed records easier to review.
+
 ## Threat Context Mapping
 
 The following mapping applies the Stage 2.2 high-level categories to the CyberLab parsed data. The categories are descriptive context labels, not findings.
 
-| Parsed technical finding | Possible threat category | Simple explanation |
-| --- | --- | --- |
-| Hosts with open TCP services | Network exposure | The parsed scan data shows services reachable over TCP. |
-| SSH services on TCP port `22` | Remote access surface | SSH may represent an administrative access surface. |
-| FTP services on TCP ports `21` and `2121` | File transfer surface | FTP services may represent file transfer functionality exposed on the network. |
-| Telnet services on TCP port `23` | Remote access surface | Telnet may represent a remote login surface. |
-| HTTP services on TCP ports `80` and `8180` | Web surface | HTTP services may represent browser-accessible or web application surfaces. |
-| SMB or NetBIOS services on TCP ports `139` and `445` | Network file-sharing surface | These services may relate to Windows networking or shared resource access. |
-| Database services on TCP ports `3306` and `5432` | Data service surface | MySQL and PostgreSQL services may relate to data storage or database access paths. |
-| RPC-related services on TCP ports `111` and `1099` | Remote service communication surface | RPC-related services may support remote service communication. |
-| Mail service on TCP port `25` | Messaging surface | SMTP may represent email transport functionality. |
-| DNS service on TCP port `53` | Naming service surface | DNS may represent name resolution functionality. |
-| Remote desktop or display services on TCP ports `5900` and `6000` | Remote interface surface | VNC and X11 may relate to remote graphical or display access. |
-| Unknown hostname or unknown version fields | Unclear exposure | Missing identity or version details require human review before later wording is finalised. |
+Where helpful, the mapping also uses recognised threat-modelling language in a limited descriptive way. STRIDE-style terms such as access, data, and service interaction are used only as broad labels. OCTAVE-style asset exposure language is used only to describe what may need later human review. These labels do not introduce new analysis, scoring, or conclusions.
+
+| Parsed technical finding | Possible threat category | Descriptive modelling lens | Simple explanation |
+| --- | --- | --- | --- |
+| Hosts with open TCP services | Network exposure | Asset exposure | The parsed scan data shows services reachable over TCP. |
+| SSH services on TCP port `22` | Remote access surface | Access interaction | SSH may represent an administrative access surface. |
+| FTP services on TCP ports `21` and `2121` | File transfer surface | Data interaction | FTP services may represent file transfer functionality exposed on the network. |
+| Telnet services on TCP port `23` | Remote access surface | Access interaction | Telnet may represent a remote login surface. |
+| HTTP services on TCP ports `80` and `8180` | Web surface | Application interaction | HTTP services may represent browser-accessible or web application surfaces. |
+| SMB or NetBIOS services on TCP ports `139` and `445` | Network file-sharing surface | Data and access interaction | These services may relate to Windows networking or shared resource access. |
+| Database services on TCP ports `3306` and `5432` | Data service surface | Data interaction | MySQL and PostgreSQL services may relate to data storage or database access paths. |
+| RPC-related services on TCP ports `111` and `1099` | Remote service communication surface | Service interaction | RPC-related services may support remote service communication. |
+| Mail service on TCP port `25` | Messaging surface | Communication interaction | SMTP may represent email transport functionality. |
+| DNS service on TCP port `53` | Naming service surface | Infrastructure interaction | DNS may represent name resolution functionality. |
+| Remote desktop or display services on TCP ports `5900` and `6000` | Remote interface surface | Access interaction | VNC and X11 may relate to remote graphical or display access. |
+| Unknown hostname or unknown version fields | Unclear exposure | Review dependency | Missing identity or version details require human review before later wording is finalised. |
 
 This table provides context only. It does not claim that any service is vulnerable or unsafe.
+
+The next section uses this context to provide AI-assisted wording for review. It should not be read as factual confirmation.
 
 ## AI-Assisted Interpretation
 
@@ -188,6 +202,8 @@ The following interpretations are advisory only. They are based on the Stage 2.2
 
 AI-assisted content in this section is not a final finding. It is structured input for human review.
 
+The table is deliberately cautious: each interpretation uses advisory language and keeps the final decision with the human reviewer.
+
 ## Human Review Status
 
 | Item | Current status | Review note |
@@ -198,6 +214,8 @@ AI-assisted content in this section is not a final finding. It is structured inp
 | Final report judgement | Not completed | Requires review in Step 3.4 before final use. |
 
 This review status is included to make clear that factual parsed records, contextual mapping, and AI-assisted interpretation have different levels of authority.
+
+The review status also makes clear that this draft is not ready to be treated as a final assessment without human approval.
 
 ## Limitations
 
