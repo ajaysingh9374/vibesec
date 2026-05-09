@@ -206,3 +206,108 @@ All AI-assisted interpretations in Step 2.3 must be reviewed by a human before t
 ### Boundary Statement
 
 Step 2.3 prepares advisory material for future reporting but does not generate a report. It does not perform exploitation, vulnerability scoring, CVE lookup, mitigation planning, or final threat modelling decisions.
+
+## Stage 3 Step 3.1: Report Scope and Audience Definition
+
+Stage 3 begins the reporting stage for VibeSec. This step defines the purpose, scope, and intended audience of the future security assessment report. It does not generate the report itself.
+
+### Report Purpose
+
+The purpose of the VibeSec security assessment report is to present the outputs from earlier stages in a clear, structured, and reviewable format. The report will help a reader understand what was scanned, what technical data was extracted, what high-level threat context was mapped, and which AI-assisted interpretations require human review.
+
+The report is intended to support assessment communication, not to prove exploitation or confirm vulnerabilities.
+
+### Target Audience
+
+The report is intended for a mixed audience:
+
+- technical readers who need to understand scan evidence, open services, protocols, and extracted technical details
+- academic readers who need to understand the project method, stage boundaries, and human-in-the-loop use of AI
+- non-specialist security stakeholders who need a clear explanation of visible exposure without unsupported conclusions
+
+The language should therefore be professional, clear, and structured. Technical details should be included, but they should be explained without assuming the reader is a penetration tester.
+
+### Report Will Include
+
+The future VibeSec report may include:
+
+- assessment scope and source XML file reference
+- Stage 1 scan and parsing results, including hosts, open ports, protocols, services, and versions
+- simple Stage 1 summary counts, such as number of hosts and open ports
+- Stage 2 threat context mappings, such as network exposure, service exposure, and web surface
+- Stage 2 AI-assisted threat interpretations, clearly labelled as AI-generated and advisory
+- human review status for AI-assisted content, such as needs review, accepted, revised, or rejected
+- limitations and boundaries of the assessment
+
+### Report Will Not Include
+
+The report must not include:
+
+- exploitation activity or exploit results
+- confirmation that a system or service is vulnerable
+- vulnerability scoring or severity ratings
+- CVE lookups or vulnerability database references
+- unsupported security conclusions
+- remediation recommendations or fixes at this step
+- new scanning, parsing, analysis, or threat modelling work
+
+### Role of AI-Generated Content
+
+AI-generated content may appear in the future report only as clearly labelled advisory material. It must be separated from factual parsed scan data and from human judgement.
+
+Any AI-generated content included in the report must use a clear warning such as:
+
+> Warning: This content was AI-generated and must be reviewed by a human before use.
+
+AI-generated content must not be presented as a final finding. Human judgement remains the final authority, and the report should show whether AI-assisted content has been accepted, revised, rejected, or still needs review.
+
+### Boundary Statement
+
+Step 3.1 defines the report scope and audience only. It does not create the report, design the full report structure, generate findings, add recommendations, or introduce scoring. The next step will define the report structure.
+
+## Stage 3 Step 3.2: Report Structure Design
+
+This step defines the planned structure of the VibeSec security assessment report. It does not generate report content, findings, recommendations, CVEs, scores, or new analysis.
+
+### Design Principles
+
+- Keep the report simple, readable, and suitable for academic submission.
+- Present factual scan data separately from threat context and AI-assisted interpretation.
+- Label AI-generated content clearly and keep it advisory.
+- Preserve human review as the final authority.
+- Avoid exploitation, vulnerability confirmation, CVE references, scoring, and recommendations.
+
+### Planned Report Sections
+
+| Order | Report section | Purpose and planned contents |
+| --- | --- | --- |
+| 1 | Title Page | Identifies the report name, project name, assessment context, author, and date. |
+| 2 | Executive Summary | Provides a short high-level overview of what the report covers, without detailed findings or recommendations. |
+| 3 | Scope | Defines what was assessed, the source XML file, and the boundaries of the assessment. |
+| 4 | Methodology | Explains the staged workflow used by VibeSec: scan input, XML parsing, simple summaries, threat context mapping, and AI-assisted advisory interpretation. |
+| 5 | Parsed Scan Results | Presents factual Stage 1 data such as hosts, open ports, protocols, services, and versions. |
+| 6 | Baseline Summary | Shows simple counts and groupings from Stage 1, such as total hosts, total open ports, and services discovered. |
+| 7 | Threat Context Mapping | Presents Stage 2.2 mappings between parsed technical findings and high-level threat categories. |
+| 8 | AI-Assisted Interpretation | Contains clearly labelled AI-generated advisory interpretations from Stage 2.3, separated from factual scan data. |
+| 9 | Human Review Status | Records whether AI-assisted interpretations are pending review, accepted, revised, or rejected by a human reviewer. |
+| 10 | Limitations | Explains what the assessment does not prove, including no exploitation, no vulnerability confirmation, no CVE lookup, no scoring, and no recommendations. |
+| 11 | Appendix | Holds supporting material such as source file references, prompt notes, or structured tables if needed. |
+
+### Logical Flow
+
+The report should move from general context to technical evidence, then to advisory interpretation:
+
+1. introduce the report and audience
+2. define scope and methodology
+3. show factual parsed scan data
+4. summarise the factual data
+5. map the data to high-level threat context
+6. present AI-assisted advisory interpretation
+7. record human review status
+8. state limitations and boundaries
+
+This ordering helps readers understand the difference between evidence, context, and advisory reasoning.
+
+### Boundary Statement
+
+Step 3.2 designs the report structure only. It does not populate the report, create final findings, perform new analysis, add recommendations, assign scores, or reference CVEs. The next step will focus on report content population within this structure.
