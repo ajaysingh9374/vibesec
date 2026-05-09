@@ -1,0 +1,23 @@
+Stage 3 - Step 3.3 CyberLab report draft generation
+
+Project: VibeSec
+Current stage: Stage 3 - Step 3.3
+Task: Generate a draft security assessment report using the CyberLab XML file samples/Vibe.xml.
+
+Inputs:
+- Parsed scan data from Stage 1
+- Threat context mapping from Stage 2.2
+- AI-assisted reasoning from Stage 2.3
+
+Guardrails:
+- Follow only Stage 3.
+- Generate report draft content only.
+- Do not add CVEs, scoring, recommendations, or exploitation.
+- Do not declare systems or services vulnerable.
+- Keep AI-generated content advisory and clearly labelled.
+- Do not commit automatically.
+
+Expected output:
+- Complete draft report based on CyberLab data.
+- Clear separation between parsed data, threat context, and AI interpretation.
+- Ready for human review in Step 3.4.
