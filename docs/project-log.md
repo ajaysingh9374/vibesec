@@ -1,4 +1,22 @@
+# VibeSec: AI-Assisted Security Assessment System
 
+## CyberLab Security Assessment Report
+
+---
+
+**Student Name:** Ajay Singh  
+**Module:** CI7530 - CyberSecurity and Artificial Intelligence  
+**Project:** VibeSec (AI-Assisted Threat Modelling System)  
+**Assessment Type:** Security Assessment using AI-supported methodology  
+**Date:** May 2026  
+
+---
+
+**Description:**
+
+This report presents the output of VibeSec, a structured and stage-driven security assessment system that integrates network scanning, threat context mapping, and AI-assisted reasoning. The objective is to demonstrate how artificial intelligence can support cybersecurity analysis while maintaining clear boundaries, transparency, and human oversight.
+
+---
 ## SMART Project Objectives
 
 1. **Parse Nmap XML scan outputs into structured security evidence**  
@@ -311,3 +329,11 @@ This ordering helps readers understand the difference between evidence, context,
 ### Boundary Statement
 
 Step 3.2 designs the report structure only. It does not populate the report, create final findings, perform new analysis, add recommendations, assign scores, or reference CVEs. The next step will focus on report content population within this structure.
+
+### Conclusion
+
+The VibeSec workflow demonstrates a structured and controlled approach to transforming network scan data into meaningful security assessment outputs. By separating factual evidence, high-level threat context, and AI-assisted interpretation, the system ensures clarity and avoids overclaiming.
+
+The approach focuses on identifying system exposure rather than confirming vulnerabilities, aligning with a human-in-the-loop model where final judgement remains the responsibility of the reviewer. The use of AI in this process is deliberate and constrained, supporting analysis without replacing expert decision-making.
+
+Overall, VibeSec illustrates how artificial intelligence can be responsibly integrated into cybersecurity workflows to improve understanding, consistency, and communication, while maintaining transparency and control.
